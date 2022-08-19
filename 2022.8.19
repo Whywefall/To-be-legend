@@ -1,0 +1,55 @@
+//1
+
+#include<stdio.h>
+
+int a[100000]={0};
+int sum[10000]={0};
+//核心思想是吧和用数组保存起来
+int main(){
+    int n,i;
+    int m,l,r;
+    while(scanf("%d",&n)!=EOF){
+        for(i=1;i<n+1;i++){
+            scanf("%d",&a[i]);
+            sum[i]=sum[i-1]+a[i];
+        }
+        scanf("%d",&m);
+        while(m--){
+            scanf("%d %d",&l,&r);
+            printf("%d",sum[r]-sum[l-1]);
+        }
+    }
+    return 0;
+}
+
+//2
+
+#include <stdio.h>
+
+int main() {
+    int a;
+    while(scanf("%d", &a) != EOF) {
+        switch(a) {
+            case 1:
+                printf("一");
+                break;
+            case 10:
+                printf("十");
+                break;
+            case 100:
+                 printf("百");
+                 break;
+            case 1000:
+                 printf("千");
+                 break;
+            case 10000:
+                 printf("万");
+                 break;     
+            default:
+                printf("无法识别"); 
+        }
+        printf("\n");
+    }
+    
+    return 0;
+} 
