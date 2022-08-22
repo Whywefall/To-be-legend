@@ -1,0 +1,72 @@
+#include <stdio.h>
+
+int main() {
+    int n, a[1001];
+    int target;
+    int i;
+    while(scanf("%d", &n) != EOF) {
+        for(i = 0; i < n; ++i) {
+            scanf("%d", &a[i]);
+        }
+        scanf("%d", &target);
+        for(i = 0; i < n; ++i) {
+            if(a[i] == target) {                    
+                break; 
+            }
+        }
+        printf("%s\n", i < n ? "yes" : "no");  // 这里写得好
+    }
+    return 0;
+} 
+
+#include <stdio.h>
+
+int main() {
+    int n, a[1001];
+    int target;
+    int i;
+    while(scanf("%d", &n) != EOF) {
+        for(i = 0; i < n; ++i) {
+            scanf("%d", &a[i]);
+        }
+        scanf("%d", &target);
+        for(i = 0; i < n; ++i) {
+            if(a[i] != target)               // (1)          
+                continue;
+            else
+                 break;
+        }
+        printf("%s\n", i < n ? "yes" : "no");  // (2)
+    }
+    
+    return 0;
+} 
+
+#include <stdio.h>
+void swap(int* x, int *y) {            // (1)
+    int tmp = *x;
+    *x = *y;
+    *y = tmp;
+}
+int main() {   
+    int a, b;
+    while(scanf("%d %d", &a, &b) != EOF) {
+        swap(&a, &b);                  // (2)
+        printf("%d %d\n", a, b); 
+    }
+    return 0;
+}
+
+#include <stdio.h>
+
+int max(int a, int b) {                      // (1)
+    return a > b ? a : b;                    // (2)
+}
+
+int main() {
+    int a, b;
+    while(scanf("%d %d", &a, &b) != EOF) {
+        printf("%d\n", max(a, b));           // (3)
+    }    
+    return 0;
+} 
