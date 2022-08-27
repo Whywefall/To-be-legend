@@ -1,0 +1,31 @@
+#include<stdio.h>
+
+/*int main(){
+    int a,i;
+    while(scanf("%d",&a)!=EOF){
+        for(i=1000;i>=1;i/=10){
+            printf("%d",a/i%10);
+            printf(",");
+        }
+        puts("");
+    }
+    return 0;
+}我的答案，我觉得没毛病，重点在于a/i%10，找出求数位的规律*/
+
+int stack[1000], top;//他用了数组思想
+
+int main() {
+    int n;
+    while(scanf("%d", &n) != EOF) {
+        top = 0;
+        while(n) {                                
+            stack[top++] = n % 10;                
+            n /= 10;                              
+        }
+        while(top) {
+            printf("%d", stack[--top]);           
+            printf("%c", top == 0 ? '\n' : ',');  // (5)这一句很好，让最后被输出的一位后面没有逗号
+        }          
+    }
+    return 0;
+} 
